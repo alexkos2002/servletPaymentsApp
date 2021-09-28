@@ -20,11 +20,6 @@ public class JDBCCreditCardDao implements CreditCardDao {
     }
 
     @Override
-    public Optional<CreditCard> findById(int id) throws DaoException {
-        return Optional.empty();
-    }
-
-    @Override
     public void create(CreditCard creditCard) throws DaoException {
         try (PreparedStatement ps = connection.prepareStatement(rb.getString("query.creditCard.create"), Statement.RETURN_GENERATED_KEYS)) {
             fillCreditCardStatement(creditCard, ps);
@@ -32,16 +27,6 @@ public class JDBCCreditCardDao implements CreditCardDao {
         } catch (SQLException e) {
             throw new DaoException(ExceptionMessages.CANT_CREATE_CREDIT_CARD);
         }
-    }
-
-    @Override
-    public void update(CreditCard entity) throws DaoException {
-
-    }
-
-    @Override
-    public void delete(int id) throws DaoException {
-
     }
 
     @Override

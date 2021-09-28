@@ -15,7 +15,7 @@
 </head>
 <body>
 <div class="container mt-4" style="width: 20em; border: 2px solid #999; border-radius: 5px">
-    <form action="/servletPaymentsApp/creditCard/putMoney" method="POST">
+    <form action="/servletPaymentsApp/creditCard/putMoney/post" method="get">
         <h2><fmt:message key="creditCard.putMoney"/></h2>
         <label for="sumStringInput"><fmt:message key="label.sum"/></label>
         <input type="hidden" name="cardId" value="${requestScope.cardId}" id="sumStringInput">

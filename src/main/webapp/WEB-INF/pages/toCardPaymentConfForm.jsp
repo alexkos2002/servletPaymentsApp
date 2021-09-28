@@ -13,13 +13,18 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .emphText {
+            font-weight: 700;
+        }
+    </style>
 </head>
 <body>
 <div class="container mt-4 pr-2 pl-2 pt-1 pb-1" style="width: 30em; border: 2px solid #999; border-radius: 5px">
     <h2><fmt:message key="payment.toCreditCard"/></h2>
     <div class="row">
         <div class="col">
-        <form method="POST" action="/servletPaymentsApp/payment">
+        <form method="get" action="/servletPaymentsApp/payment/send">
             <input type="hidden" name="senderMoneyAccId" value="${requestScope.cardPaymentConfDto.senderMoneyAccountId}">
             <input type="hidden" name="receiverMoneyAccId" value="${requestScope.cardPaymentConfDto.receiverMoneyAccountId}">
 
@@ -57,7 +62,6 @@
                     <input type="hidden" name="senderMoneyAccId" value="${requestScope.cardPaymentConfDto.senderMoneyAccountId}">
                     <input type="hidden" name="paymentNumber" value="${requestScope.cardPaymentConfDto.paymentNumber}">
                     <input type="hidden" name="totalString" value="${requestScope.cardPaymentConfDto.totalInt}.${requestScope.cardPaymentConfDto.totalDec}">
-                    <input type="hidden" name="payedSumString" value="${requestScope.cardPaymentConfDto.payedSumInt}.${requestScope.cardPaymentConfDto.payedSumDec}">
                     <input class="btn btn-warning" type="submit" value="<fmt:message key="action.cancel"/>">
                 </form>
             </c:if>

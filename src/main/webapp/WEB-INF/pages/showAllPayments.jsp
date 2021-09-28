@@ -19,6 +19,18 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .roundButton {
+            width: 50px;
+            height: 50px;
+            border-radius: 20px;
+            background-size: cover;
+            border: 1px solid #788;
+        }
+        .emphText {
+            font-weight: 700;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-light navbar-expand-lg bg-dark fixed-top text-white" style="height:5em">
@@ -55,8 +67,12 @@
                 </li>
             </c:if>
         </ul>
-        <a class="nav-link text-white" href="?lang=en"><fmt:message key="lang.en"/></a>
-        <a class="nav-link text-white" href="?lang=ua"><fmt:message key="lang.ukr"/></a>
+        <a class="nav-link text-white" href="/servletPaymentsApp/payment/page?pageNum=${requestScope.curPage}&sortParam=${requestScope.sortParameter}&lang=en">
+            <fmt:message key="lang.en"/>
+        </a>
+        <a class="nav-link text-white" href="/servletPaymentsApp/payment/page?pageNum=${requestScope.curPage}&sortParam=${requestScope.sortParameter}&lang=ua">
+            <fmt:message key="lang.ukr"/>
+        </a>
         <c:if test="${sessionScope.authUser == null}">
             <a class="btn btn-primary mr-2 ml-2" href="/servletPaymentsApp/registration"><fmt:message key="menu.button.signUp"/></a>
         </c:if>

@@ -33,7 +33,7 @@
             <div class="col">
                 <h2><fmt:message key="label.moneyAccount"/></h2>
                 <p>${requestScope.moneyAccountNum}</p>
-                <form method="post" action="/servletPaymentsApp/order/confirm">
+                <form method="get" action="/servletPaymentsApp/order/confirm/post">
                     <input type="hidden" name="orderId" value="${requestScope.orderConfDto.id}">
                     <input type="hidden" name="userId" value="${requestScope.orderConfDto.ownerId}">
                     <input type="hidden" name="userName" value="${requestScope.orderConfDto.ownerName}">

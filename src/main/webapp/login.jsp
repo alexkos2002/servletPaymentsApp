@@ -15,7 +15,7 @@
 <body>
 <div class="container mt-5" style="width: 24em; border: 2px solid #999; border-radius: 5px;">
 
-    <form action="/servletPaymentsApp/login" method="post" class="form-group">
+    <form action="/servletPaymentsApp/login/auth" method="get" class="form-group">
         <div class="mt-2">
             <label for="usernameId" ><fmt:message key="label.username"/></label>
             <input type="text" name="username" class="form-control" id="usernameId" value="${requestScope.username}"/>

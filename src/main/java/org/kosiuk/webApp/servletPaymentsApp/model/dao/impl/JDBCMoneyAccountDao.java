@@ -48,11 +48,6 @@ public class JDBCMoneyAccountDao implements MoneyAccountDao {
     }
 
     @Override
-    public void create(MoneyAccount entity) throws DaoException {
-
-    }
-
-    @Override
     public int createWithIdReturn(MoneyAccount moneyAccount) throws DaoException {
         try (PreparedStatement ps =
                      connection.prepareStatement(rb.getString("query.moneyAccount.create"), Statement.RETURN_GENERATED_KEYS)) {
@@ -66,11 +61,6 @@ public class JDBCMoneyAccountDao implements MoneyAccountDao {
         } catch (SQLException e) {
             throw new DaoException(ExceptionMessages.CANT_CREATE_MONEY_ACCOUNT, e);
         }
-    }
-
-    @Override
-    public void update(MoneyAccount entity) throws DaoException {
-
     }
 
     @Override

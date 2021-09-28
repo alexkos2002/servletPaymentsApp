@@ -11,7 +11,9 @@ import java.util.Optional;
 public interface CreditCardOrderDao extends GenericDao<CreditCardOrder>{
 
     @Override
-    Optional<CreditCardOrder> findById(int id) throws DaoException;
+    default Optional<CreditCardOrder> findById(int id) throws DaoException {
+        return Optional.empty();
+    }
 
     List<CreditCardOrder> findAllByOwnerId(int ownerId) throws DaoException;
 
@@ -24,11 +26,11 @@ public interface CreditCardOrderDao extends GenericDao<CreditCardOrder>{
     void reject(int id, String rejectionMessage) throws DaoException;
 
     @Override
-    void create(CreditCardOrder entity) throws DaoException;
+    default void create(CreditCardOrder entity) throws DaoException {}
 
     @Override
-    void update(CreditCardOrder entity) throws DaoException;
+    default void update(CreditCardOrder entity) throws DaoException {}
 
     @Override
-    void delete(int id) throws DaoException;
+    default void delete(int id) throws DaoException {}
 }

@@ -227,11 +227,6 @@ public class JDBCUserDao implements UserDao {
     }
 
     @Override
-    public void update(User entity) {
-
-    }
-
-    @Override
     public void delete(int id) throws DaoException{
         try (PreparedStatement ps =
                      connection.prepareStatement(rb.getString("query.user.delete.byId"), Statement.RETURN_GENERATED_KEYS)) {

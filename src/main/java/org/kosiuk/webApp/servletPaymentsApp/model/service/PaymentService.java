@@ -16,7 +16,7 @@ import static java.lang.Math.round;
 public class PaymentService {
 
     private final DaoFactory daoFactory = DaoFactory.getInstance();
-    private final ResourceBundle rb = ResourceBundle.getBundle("/db/application");
+    private final ResourceBundle rb = ResourceBundle.getBundle("application");
     private final ResourceBundle rbDB = ResourceBundle.getBundle("/db/database");
     private final double comissionPercantage = Double.parseDouble(rb.getString("comissionPercentage"));
     private final int halfPageSize = Integer.parseInt(rbDB.getString("payment.page.halfSize"));
@@ -201,7 +201,6 @@ public class PaymentService {
             connection.beginTransaction();
             PaymentDao paymentDao = daoFactory.createPaymentDao(connection);
             MoneyAccountDao moneyAccountDao = daoFactory.createMoneyAccountDao(connection);
-
             try {
                 long curSumAvailableInt = moneyAccountDao.selectCurSumAvailableInt(senderMoneyAccId) * 100 + totalInt * 100 +
                         moneyAccountDao.selectCurSumAvailableDec(senderMoneyAccId) + totalDec;
@@ -214,9 +213,6 @@ public class PaymentService {
                 logger.warn(e.getMessage());
                 connection.rollback();
             }
-            paymentDao.deleteByNumber(paymentNumber);
-        } catch (DaoException e) {
-            logger.warn(e.getMessage());
         }
     }
 

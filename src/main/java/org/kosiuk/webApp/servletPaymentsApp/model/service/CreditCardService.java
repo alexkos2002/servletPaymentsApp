@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 public class CreditCardService {
 
     private final DaoFactory daoFactory = DaoFactory.getInstance();
-    private final ResourceBundle rb = ResourceBundle.getBundle("/db/application");
+    private final ResourceBundle rb = ResourceBundle.getBundle("application");
     private final long ONE_TRILLION = Long.parseLong(rb.getString("oneTrillion"));
     private final int VISA_CODE = Integer.parseInt(rb.getString("visaCode"));
     private final int MASTERCARD_CODE = Integer.parseInt(rb.getString("masterCardCode"));

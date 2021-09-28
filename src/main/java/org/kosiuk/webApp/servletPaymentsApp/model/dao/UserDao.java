@@ -12,7 +12,7 @@ import java.util.Set;
 public interface UserDao extends GenericDao<User>{
 
     @Override
-    void create(User entity) throws DaoException;
+    default void create(User entity) throws DaoException {}
 
     Optional<User> findByUsername(String username) throws DaoException;
 
@@ -44,5 +44,10 @@ public interface UserDao extends GenericDao<User>{
     long getNumberOfRecords() throws DaoException;
 
     @Override
-    void delete(int id) throws DaoException;
+    default void update(User entity) throws DaoException {
+
+    }
+
+    @Override
+    default void delete(int id) throws DaoException {}
 }

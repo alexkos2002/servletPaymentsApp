@@ -48,8 +48,8 @@
                 </li>
             </c:if>
         </ul>
-        <a class="nav-link text-white" href="?lang=en"><fmt:message key="lang.en"/></a>
-        <a class="nav-link text-white" href="?lang=ua"><fmt:message key="lang.ukr"/></a>
+        <a class="nav-link text-white" href="/servletPaymentsApp/user/page?pageNum=${requestScope.curPage}&lang=en"><fmt:message key="lang.en"/></a>
+        <a class="nav-link text-white" href="/servletPaymentsApp/user/page?pageNum=${requestScope.curPage}&lang=ua"><fmt:message key="lang.ukr"/></a>
         <c:if test="${sessionScope.authUser == null}">
             <a class="btn btn-primary mr-2 ml-2" href="/servletPaymentsApp/registration"><fmt:message key="menu.button.signUp"/></a>
         </c:if>

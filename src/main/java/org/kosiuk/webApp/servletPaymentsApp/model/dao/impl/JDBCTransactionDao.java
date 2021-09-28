@@ -23,11 +23,6 @@ public class JDBCTransactionDao implements TransactionDao {
     }
 
     @Override
-    public Optional<Transaction> findById(int id) throws DaoException {
-        return Optional.empty();
-    }
-
-    @Override
     public List<Transaction> findAllByReceiverMoneyAccountId(int receiverMoneyAccountId) throws DaoException {
         try (PreparedStatement ps =
                      connection.prepareStatement(rb.getString("query.transaction.find.ByRecMonAccId"), Statement.RETURN_GENERATED_KEYS)) {
@@ -48,16 +43,6 @@ public class JDBCTransactionDao implements TransactionDao {
         } catch (SQLException e) {
             throw new DaoException(ExceptionMessages.CANT_CREATE_TRANSACTION, e);
         }
-    }
-
-    @Override
-    public void update(Transaction entity) throws DaoException {
-
-    }
-
-    @Override
-    public void delete(int id) throws DaoException {
-
     }
 
     @Override

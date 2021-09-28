@@ -29,8 +29,11 @@ public class UserService {
     }
 
     public void registerUser(UserRegistrationDto userRegDto) throws UsernameNotUniqueException {
-        User user = User.builder().initRegistrationDetails(userRegDto.getUsername(), userRegDto.getEmail(),
-                userRegDto.getPassword()).initFlagsDefault().roles(Role.USER).build();
+        User user = User.builder().
+                initRegistrationDetails(userRegDto.getUsername(), userRegDto.getEmail(), userRegDto.getPassword())
+                .initFlagsDefault()
+                .roles(Role.USER)
+                .build();
 
         try (DaoConnection connection = daoFactory.getConnection()) {
             UserDao userDao = daoFactory.createUserDao(connection);
@@ -78,6 +81,7 @@ public class UserService {
         }
     }
 
+    @Deprecated
     public List<User> getAllUsers() {
         try (DaoConnection connection = daoFactory.getConnection()) {
             UserDao userDao = daoFactory.createUserDao(connection);

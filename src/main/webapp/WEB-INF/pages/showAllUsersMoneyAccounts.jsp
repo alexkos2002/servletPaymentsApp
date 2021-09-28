@@ -13,6 +13,25 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .roundButton {
+            width: 50px;
+            height: 50px;
+            border-radius: 20px;
+            background-size: cover;
+            border: 1px solid #788;
+        }
+        .rowStart{
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            align-items: center;
+        }
+
+        .colAbs{
+            margin: 1em 0.5em;
+        }
+    </style>
     <script>
         function submitForm(formId) {
             document.getElementById(formId).submit();
@@ -55,8 +74,12 @@
                 </li>
             </c:if>
         </ul>
-        <a class="nav-link text-white" href="?lang=en"><fmt:message key="lang.en"/></a>
-        <a class="nav-link text-white" href="?lang=ua"><fmt:message key="lang.ukr"/></a>
+        <a class="nav-link text-white" href="/servletPaymentsApp/moneyAccount/ofUser/page?userId=${requestScope.userId}&pageNum=${requestScope.curPage}&sortParam=${requestScope.sortParameter}lang=en">
+            <fmt:message key="lang.en"/>
+        </a>
+        <a class="nav-link text-white" href="/servletPaymentsApp/moneyAccount/ofUser/page?userId=${requestScope.userId}&pageNum=${requestScope.curPage}&sortParam=${requestScope.sortParameter}lang=ua">
+            <fmt:message key="lang.ukr"/>
+        </a>
         <c:if test="${sessionScope.authUser == null}">
             <a class="btn btn-primary mr-2 ml-2" href="/servletPaymentsApp/registration"><fmt:message key="menu.button.signUp"/></a>
         </c:if>

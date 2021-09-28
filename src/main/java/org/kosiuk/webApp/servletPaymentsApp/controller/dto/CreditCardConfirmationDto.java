@@ -2,6 +2,8 @@ package org.kosiuk.webApp.servletPaymentsApp.controller.dto;
 
 import org.kosiuk.webApp.servletPaymentsApp.model.entity.PaymentSystem;
 
+import java.util.Objects;
+
 
 public class CreditCardConfirmationDto {
 
@@ -50,5 +52,21 @@ public class CreditCardConfirmationDto {
 
     public void setPaymentSystem(PaymentSystem paymentSystem) {
         this.paymentSystem = paymentSystem;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CreditCardConfirmationDto guest = (CreditCardConfirmationDto) o;
+        return number == guest.getNumber() &&
+                cvv == guest.getCvv() &&
+                expireDateString.equals(guest.getExpireDateString()) &&
+                paymentSystem == guest.paymentSystem;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(number, cvv, expireDateString, paymentSystem);
     }
 }

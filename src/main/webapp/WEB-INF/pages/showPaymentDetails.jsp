@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .emphText {
+            font-weight: 700;
+        }
+    </style>
 </head>
 <body>
 <div class="container mt-2" style="width: 30em; border: 1px solid #666; border-radius: 3px">

@@ -11,7 +11,9 @@ import java.util.Optional;
 public interface PaymentDao extends GenericDao<Payment>{
 
     @Override
-    Optional<Payment> findById(int id) throws DaoException;
+    default Optional<Payment> findById(int id) throws DaoException {
+        return Optional.empty();
+    }
 
     Optional<Payment> findByNumber(long number) throws DaoException;
 
@@ -22,15 +24,21 @@ public interface PaymentDao extends GenericDao<Payment>{
     Optional<PaymentDetailsDto> findPaymentDetails(long paymentNumber) throws DaoException;
 
     @Override
-    void create(Payment entity) throws DaoException;
+    default void create(Payment entity) throws DaoException {
+
+    }
 
     @Override
-    void update(Payment entity) throws DaoException;
+    default void update(Payment entity) throws DaoException {
+
+    }
 
     void updateStatus(long number, PaymentStatus status) throws DaoException;
 
     @Override
-    void delete(int id) throws DaoException;
+    default void delete(int id) throws DaoException {
+
+    }
 
     void deleteByNumber(long number) throws DaoException;
 

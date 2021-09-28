@@ -27,11 +27,6 @@ public class JDBCPaymentDao implements PaymentDao {
     }
 
     @Override
-    public Optional<Payment> findById(int id) throws DaoException {
-        return Optional.empty();
-    }
-
-    @Override
     public Optional<Payment> findByNumber(long number) throws DaoException {
         try (PreparedStatement ps = connection.prepareStatement(rb.getString("query.payment.find.ByNumber"),
                 Statement.RETURN_GENERATED_KEYS)) {
@@ -130,11 +125,6 @@ public class JDBCPaymentDao implements PaymentDao {
     }
 
     @Override
-    public void update(Payment entity) throws DaoException {
-
-    }
-
-    @Override
     public void updateStatus(long number, PaymentStatus status) throws DaoException {
         try (PreparedStatement ps = connection.prepareStatement(rb.getString("query.payment.update.status"), Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, status.name());
@@ -143,11 +133,6 @@ public class JDBCPaymentDao implements PaymentDao {
         } catch (SQLException e) {
             throw new DaoException(ExceptionMessages.CANT_UPDATE_PAYMENT_STATUS, e);
         }
-    }
-
-    @Override
-    public void delete(int id) throws DaoException {
-
     }
 
     @Override

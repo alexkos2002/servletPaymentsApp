@@ -13,6 +13,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .mainAnnouncement {
+            color: bisque;
+            font-weight: 600;
+            text-align: center;
+        }
+    </style>
 </head>
 <body style="background-image: url(/images/bankBackground.jpg); background-size: cover; background-repeat: no-repeat;">
 <nav class="navbar navbar-light navbar-expand-lg bg-dark fixed-top text-white" style="height:5em">
@@ -63,8 +70,8 @@
     </div>
 </nav>
 <div class="container" style="margin-top: 6.5em">
-    <h1 class="mainAnnouncement" style="color: bisque; font-weight: 600; text-align: center;">
-        Welcome to our app. Register please and then move to your personal room.
+    <h1 class="mainAnnouncement" >
+        <fmt:message key="mainAnnouncement"/>
     </h1>
 </div>
 </body>

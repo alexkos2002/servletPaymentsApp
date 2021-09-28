@@ -21,7 +21,7 @@ public class MoneyAccountService {
 
     private MoneyAccountService() {
         daoFactory = DaoFactory.getInstance();
-        rb = ResourceBundle.getBundle("/db/application");
+        rb = ResourceBundle.getBundle("application");
         ACCOUNT_CODE = Long.parseLong(rb.getString("thisSystemMoneyAccountCode"));
         moneyAccountMonitorsMap = new HashMap<>();
         try (DaoConnection connection = daoFactory.getConnection()) {

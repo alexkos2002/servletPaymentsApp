@@ -18,10 +18,10 @@ public class AuthFilter implements Filter {
     Logger logger = Logger.getLogger(AuthFilter.class);
 
     private final List<String> adminPaths = Arrays.asList(
-            "",
+            Path.MAIN_PAGE_PATH,
             "/",
-            "/logout",
-            "/user",
+            Path.LOGOUT_PATH,
+            Path.SHOW_ALL_USERS_PATH,
             Path.CHANGE_ROLES_PATH,
             Path.BAN_USER_PATH,
             Path.UNBAN_USER_PATH,
@@ -30,12 +30,16 @@ public class AuthFilter implements Filter {
             Path.SHOW_PERSONAL_ROOM_PATH,
             Path.SHOW_ALL_ORDERS_PATH,
             Path.SHOW_ALL_ORDERS_PAGE_PATH,
+            Path.NEW_ORDER_PATH,
             Path.ORDER_REJECTION_FORM_PATH,
+            Path.REJECT_ORDER_PATH,
             Path.ORDER_CONFIRMATION_FORM_PATH,
+            Path.CONFIRM_ORDER_PATH,
             Path.CANCEL_ORDER_CONFIRMATION_PATH,
             Path.SHOW_ALL_USERS_CREDIT_CARDS_PATH,
             Path.SHOW_ALL_USERS_CREDIT_CARDS_PAGE_PATH,
             Path.PUT_MONEY_FORM_PATH,
+            Path.PUT_MONEY_PATH,
             Path.SHOW_ALL_MONEY_ACCOUNTS_PATH,
             Path.SHOW_ALL_MONEY_ACCOUNTS_PAGE_PATH,
             Path.SHOW_ALL_USERS_MONEY_ACCOUNTS_PATH,
@@ -48,6 +52,7 @@ public class AuthFilter implements Filter {
             Path.SHOW_TO_CARD_PAYMENT_FORM_PATH,
             Path.PREPARE_TO_CARD_PAYMENT_PATH,
             Path.CANCEL_PAYMENT_PATH,
+            Path.SEND_PAYMENT_PATH,
             Path.SHOW_TO_MONEY_ACCOUNT_PAYMENT_FORM_PATH,
             Path.PREPARE_TO_MONEY_ACCOUNT_PAYMENT_PATH,
             Path.SHOW_ALL_PAYMENTS_PATH,
@@ -60,14 +65,16 @@ public class AuthFilter implements Filter {
      * Paths that can visit user with USER authority
      */
     private final List<String> userPaths = Arrays.asList(
-            "",
+            Path.MAIN_PAGE_PATH,
             "/",
-            "/logout",
+            Path.LOGOUT_PATH,
             Path.SHOW_PERSONAL_ROOM_PATH,
+            Path.NEW_ORDER_PATH,
             Path.SHOW_ALL_ORDERS_PATH,
             Path.SHOW_ALL_USERS_CREDIT_CARDS_PATH,
             Path.SHOW_ALL_USERS_CREDIT_CARDS_PAGE_PATH,
             Path.PUT_MONEY_FORM_PATH,
+            Path.PUT_MONEY_PATH,
             Path.SHOW_ALL_USERS_MONEY_ACCOUNTS_PATH,
             Path.SHOW_ALL_USERS_MONEY_ACCOUNTS_PAGE_PATH,
             Path.BLOCK_MONEY_ACCOUNT_PATH,
@@ -77,6 +84,7 @@ public class AuthFilter implements Filter {
             Path.SHOW_TO_CARD_PAYMENT_FORM_PATH,
             Path.PREPARE_TO_CARD_PAYMENT_PATH,
             Path.CANCEL_PAYMENT_PATH,
+            Path.SEND_PAYMENT_PATH,
             Path.SHOW_TO_MONEY_ACCOUNT_PAYMENT_FORM_PATH,
             Path.PREPARE_TO_MONEY_ACCOUNT_PAYMENT_PATH,
             Path.SHOW_ALL_PAYMENTS_PATH,
@@ -90,10 +98,13 @@ public class AuthFilter implements Filter {
      *
      */
     private final List<String> defaultPaths = Arrays.asList(
-            "",
+            Path.MAIN_PAGE_PATH,
             "/",
-            "/login",
-            "/registration");
+            Path.LOGIN_FORM_PATH,
+            Path.LOGIN_PATH,
+            Path.REGISTRATION_FORM_PATH,
+            Path.REGISTRATION_PATH,
+            Path.LOGIN_PATH);
     /**
      * Map with paths that user with various authorities can visit
      */

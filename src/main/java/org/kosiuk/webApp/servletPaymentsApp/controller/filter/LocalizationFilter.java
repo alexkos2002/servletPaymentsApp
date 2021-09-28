@@ -31,30 +31,6 @@ public class LocalizationFilter implements Filter {
             String requestURI = httpServletRequest.getRequestURI().
                     replaceFirst(httpServletRequest.getContextPath() + Path.APP_ROOT, "");
 
-            if(requestURI.equals(Path.SHOW_ALL_USERS_PAGE_PATH)) {
-                httpServletResponse.sendRedirect(httpServletRequest.getContextPath() +
-                        Path.APP_ROOT + Path.SHOW_ALL_USERS_PATH);
-                return;
-            }
-
-            if(requestURI.equals(Path.SHOW_ALL_ORDERS_PAGE_PATH)) {
-                httpServletResponse.sendRedirect(httpServletRequest.getContextPath() +
-                        Path.APP_ROOT + Path.SHOW_ALL_ORDERS_PATH);
-                return;
-            }
-
-            if(requestURI.equals(Path.SHOW_ALL_MONEY_ACCOUNTS_PAGE_PATH)) {
-                httpServletResponse.sendRedirect(httpServletRequest.getContextPath() +
-                        Path.APP_ROOT + Path.SHOW_ALL_MONEY_ACCOUNTS_PATH);
-                return;
-            }
-
-            if(requestURI.equals(Path.SHOW_ALL_USERS_CREDIT_CARDS_PAGE_PATH)) {
-                httpServletResponse.sendRedirect(httpServletRequest.getContextPath() +
-                        Path.APP_ROOT + Path.SHOW_ALL_USERS_CREDIT_CARDS_PATH);
-                return;
-            }
-
 
         }
 

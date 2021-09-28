@@ -9,16 +9,24 @@ import java.util.Optional;
 public interface CreditCardDao extends GenericDao<CreditCard>{
 
     @Override
-    Optional<CreditCard> findById(int id) throws DaoException;
+    default Optional<CreditCard> findById(int id) throws DaoException {
+        return Optional.empty();
+    }
 
     @Override
-    void create(CreditCard entity) throws DaoException;
+    default void create(CreditCard entity) throws DaoException {
+
+    };
 
     @Override
-    void update(CreditCard entity) throws DaoException;
+    default void update(CreditCard entity) throws DaoException {
+
+    }
 
     @Override
-    void delete(int id) throws DaoException;
+    default void delete(int id) throws DaoException {
+
+    }
 
     long getNumberOfRecordsByUserId(int userId) throws DaoException;
 

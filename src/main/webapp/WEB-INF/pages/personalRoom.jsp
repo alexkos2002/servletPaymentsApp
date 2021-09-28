@@ -12,6 +12,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 <body>
 <nav class="navbar navbar-light navbar-expand-lg bg-dark fixed-top text-white" style="height:5em">
@@ -48,8 +49,8 @@
                 </li>
             </c:if>
         </ul>
-        <a class="nav-link text-white" href="?lang=en"><fmt:message key="lang.en"/></a>
-        <a class="nav-link text-white" href="?lang=ua"><fmt:message key="lang.ukr"/></a>
+        <a class="nav-link text-white" href="/servletPaymentsApp/personalRoom?userId=${sessionScope.authUser.id}&lang=en"><fmt:message key="lang.en"/></a>
+        <a class="nav-link text-white" href="/servletPaymentsApp/personalRoom?userId=${sessionScope.authUser.id}&lang=ua"><fmt:message key="lang.ukr"/></a>
         <c:if test="${sessionScope.authUser == null}">
             <a class="btn btn-primary mr-2 ml-2" href="/servletPaymentsApp/registration"><fmt:message key="menu.button.signUp"/></a>
         </c:if>
@@ -99,7 +100,7 @@
             <c:if test="${!requestScope.userBasicDto.hasOrderOnCheck}">
             <h4><fmt:message key="label.newOrder"/></h4>
             <p class="text-danger">${requestScope.orderCreationMessage}</p>
-            <form method="post" action="/servletPaymentsApp/order" class="form-group">
+            <form method="get" action="/servletPaymentsApp/order/new" class="form-group">
                 <input type="hidden" name="userId" value="${requestScope.userBasicDto.id}">
                 <h6><fmt:message key="label.entWishes"/></h6>
                 <input type="text" name="message" class="${requestScope.errors.get('messageErrors') != null ? 'is-invalid' : 'is-valid'}">
@@ -133,7 +134,7 @@
             </form>
             </c:if>
             <c:if test="${requestScope.userBasicDto.hasOrderOnCheck}">
-                <h6><fmt:message key="order.ordInProc"/></h6>
+                <h5><fmt:message key="order.ordInProc"/></h5>
             </c:if>
         </div>
         <div class="col-3">

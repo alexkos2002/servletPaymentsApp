@@ -122,7 +122,7 @@ public class CreditCardOrderService {
                 logger.warn(e.getMessage());
                 connection.rollback();
             }
-        }catch (DaoException e) {
+        } catch (DaoException e) {
             logger.warn(e.getMessage());
         }
         isAnyOrderOnConfirmation = false;

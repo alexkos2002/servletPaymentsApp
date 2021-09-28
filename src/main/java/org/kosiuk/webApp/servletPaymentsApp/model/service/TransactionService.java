@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 public class TransactionService {
 
     private final DaoFactory daoFactory = DaoFactory.getInstance();
-    private final ResourceBundle rb = ResourceBundle.getBundle("/db/application");
+    private final ResourceBundle rb = ResourceBundle.getBundle("application");
     public static final Logger logger = Logger.getLogger(TransactionService.class);
 
     public long getNumberOfRecordsByReceiverMonAccId(int receiverMoneyAccountId) {

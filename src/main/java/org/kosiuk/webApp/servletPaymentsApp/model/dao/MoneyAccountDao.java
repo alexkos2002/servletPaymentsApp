@@ -11,17 +11,24 @@ import java.util.Optional;
 public interface MoneyAccountDao extends GenericDao<MoneyAccount>{
 
     @Override
-    Optional<MoneyAccount> findById(int id) throws DaoException;
+    default Optional<MoneyAccount> findById(int id) throws DaoException {
+        return Optional.empty();
+    }
 
     Optional<MoneyAccount> findByNumber(long number) throws DaoException;
 
     int createWithIdReturn(MoneyAccount entity) throws DaoException;
 
     @Override
-    void update(MoneyAccount entity) throws DaoException;
+    default void create(MoneyAccount entity) throws DaoException {
+
+    }
 
     @Override
-    void delete(int id) throws DaoException;
+    default void update(MoneyAccount entity) throws DaoException {}
+
+    @Override
+    default void delete(int id) throws DaoException {}
 
     void updateSum(int moneyAccId, long sumInt, int sumDec) throws DaoException;
 

@@ -23,11 +23,6 @@ public class JDBCreditCardOrderDao implements CreditCardOrderDao {
     }
 
     @Override
-    public Optional<CreditCardOrder> findById(int id) throws DaoException {
-        return Optional.empty();
-    }
-
-    @Override
     public List<CreditCardOrder> findAllByOwnerId(int ownerId) throws DaoException {
         try (PreparedStatement ps =
                      connection.prepareStatement(rb.getString("query.order.findAll.byUserId"), Statement.RETURN_GENERATED_KEYS)) {
@@ -118,16 +113,6 @@ public class JDBCreditCardOrderDao implements CreditCardOrderDao {
         } catch (SQLException e) {
             throw new DaoException(ExceptionMessages.CANT_CREATE_ORDER, e);
         }
-    }
-
-    @Override
-    public void update(CreditCardOrder entity) throws DaoException {
-
-    }
-
-    @Override
-    public void delete(int id) throws DaoException {
-
     }
 
     private void fillOrderStatement(CreditCardOrder order, PreparedStatement ps) throws SQLException {

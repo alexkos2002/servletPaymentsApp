@@ -18,7 +18,7 @@
     <h1><fmt:message key="order.reject"/></h1>
     <h3><fmt:message key="order.giveReasToCl"/></h3>
     <br/>
-    <form method="POST" action="/servletPaymentsApp/order/reject" class="form-group">
+    <form method="get" action="/servletPaymentsApp/order/reject/post" class="form-group">
         <input type="hidden" name="id" value="${requestScope.id}">
         <input type="hidden" name="userId" value="${requestScope.userId}">
         <textarea class="form-control ${requestScope.errors.get('messageErrors') != null ? 'is-invalid' : 'is-valid'}"

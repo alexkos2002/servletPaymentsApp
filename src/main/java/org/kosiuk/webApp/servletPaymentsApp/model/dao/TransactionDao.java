@@ -9,18 +9,20 @@ import java.util.Optional;
 public interface TransactionDao extends GenericDao<Transaction>{
 
     @Override
-    Optional<Transaction> findById(int id) throws DaoException;
+    default Optional<Transaction> findById(int id) throws DaoException {
+        return Optional.empty();
+    }
 
     List<Transaction> findAllByReceiverMoneyAccountId(int receiverMoneyAccountId) throws DaoException;
 
     @Override
-    void create(Transaction entity) throws DaoException;
+    default void create(Transaction entity) throws DaoException {};
 
     @Override
-    void update(Transaction entity) throws DaoException;
+    default void update(Transaction entity) throws DaoException {};
 
     @Override
-    void delete(int id) throws DaoException;
+    default void delete(int id) throws DaoException {};
 
     long getNumberOfRecordsByReceiverMonAccId(int receiverMoneyAccountId) throws DaoException;
 }

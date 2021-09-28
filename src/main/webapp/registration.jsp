@@ -15,7 +15,7 @@
 </head>
 <body>
 <div class="container mt-4" style="width: 20em; border: 2px solid #999; border-radius: 5px">
-    <form method="post" action="/servletPaymentsApp/registration"  class="form-group">
+    <form method="get" action="/servletPaymentsApp/registration/auth"  class="form-group">
         <c:set var="userRegDto" value="${requestScope.userRegDto}"/>
         <label for="username" ><fmt:message key="label.username"/></label>
         <input type="text" name="username" class="form-control ${requestScope.errors.get('usernameErrors') != null ? 'is-invalid' : 'is-valid'}"
